@@ -173,6 +173,8 @@
 ## SPRING DATA REST
 Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-starter-data-rest`
 
+**Nous allons continuer le développement sur le projet de l'atelier 3 pour les étapes qui suivent**
+
 1. Au niveau du projet ajouter la dépendance suivante:
 
 	```
@@ -204,5 +206,9 @@ Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-start
 	
 	http://localhost:8080/customer/search/findByLastName?lastName=test
 	```
+	
+## Exemple d'une table de la BdD OMPIC PROJET X
+
+Essayer de créer un projet qui pointe sur une base de donnée de votre organisme, et exposer une EndPoint REST d'une table de la base de donnée
 
 	
