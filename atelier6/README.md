@@ -231,3 +231,34 @@ spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
 spring.jpa.show-sql=true
 ```
 	
+## REST TEMPLATE
+
+Dans cette partie nous allons voir comment depuis votre application SPRING BOOT faire appel à une ENDPOINT REST.
+
+1. Ajouter le code suivant à votre controller:
+
+	```java
+		@Bean
+		public RestTemplate restTemplate() {
+		    return new RestTemplate();
+		}
+	```	
+
+	```java
+		@Autowired
+		RestTemplate rt;
+		
+		private final String url = "https://gturnquist-quoters.cfapps.io/api/random";
+		
+		
+		@RequestMapping("/testresttemplate")
+		@ResponseBody String testresttemplate() {
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	        HttpEntity <String> entity = new HttpEntity<String>(headers);
+	      
+	        return rt.exchange(this.url, HttpMethod.GET, entity, String.class).getBody();
+		}
+	```
+
+2. Accéder à l'URL[ http://localhost:8080/testresttemplate]( http://localhost:8080/testresttemplate) pour voir le résultat
