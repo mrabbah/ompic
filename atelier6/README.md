@@ -211,4 +211,23 @@ Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-start
 
 Essayer de créer un projet qui pointe sur une base de donnée de votre organisme, et exposer une EndPoint REST d'une table de la base de donnée
 
+Elements qui peuvent aider
+
+```
+<dependency>
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc7</artifactId>
+    <version>12.1.0</version>
+</dependency>
+```
+
+```
+spring.jpa.hibernate.ddl-auto=validate #none, create, create-drop, validate, and update
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+spring.datasource.url= jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username=system
+spring.datasource.password=changeme
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.jpa.show-sql=true
+```
 	
