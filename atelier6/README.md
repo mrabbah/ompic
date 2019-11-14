@@ -170,6 +170,39 @@
 19. Testez avec Postman
 	![](images/8.png)
 	
+## SPRING DATA REST
+Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-starter-data-rest`
 
+1. Au niveau du projet ajouter la dépendance suivante:
+
+	```
+	<dependency>
+	    <groupId>org.springframework.boot</groupId
+	    <artifactId>spring-boot-starter-data-rest</artifactId></dependency>
+	<dependency>
+	```
+	
+2. Créer l'interface suivante au niveau du package entities:
+
+	```java
+	@RepositoryRestResource(collectionResourceRel = "customers", path = "customers")
+	public interface MyCustomerRepository extends PagingAndSortingRepository<Customer, Long> {
+	    List<Customer> findByLastName(@Param("lastName") String lastName);
+	}
+	```
+
+3. Analysez les liens suviants:
+
+	```
+	http://localhost:9090/customers{?page,size,sort}
+	
+	http://localhost:9090/profile
+	
+	http://localhost:9090/customers
+	
+	http://localhost:9090/customers/1
+	
+	http://localhost:8080/customer/search/findByLastName?lastName=test
+	```
 
 	
