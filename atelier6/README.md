@@ -179,9 +179,9 @@ Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-start
 
 	```
 	<dependency>
-	    <groupId>org.springframework.boot</groupId
-	    <artifactId>spring-boot-starter-data-rest</artifactId></dependency>
-	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-data-rest</artifactId>
+	 </dependency>
 	```
 	
 2. Créer l'interface suivante au niveau du package entities:
