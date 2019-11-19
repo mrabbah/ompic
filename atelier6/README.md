@@ -350,3 +350,25 @@ Dans cette partie nous allons voir comment depuis votre application SPRING BOOT 
 					this.url, Quote.class);
 	log.info(quote.toString());
 	```
+	
+## Attachement
+
+Dans cette partie nous allons voir comment upload ou download un fichier en utilisant REST.
+
+1. Créer un projet SPRING BOOT nommé: restattachement avec le starter Web et Devtools.
+2. Premièrement configurant l'application de tel sorte à permettre le Multipart file uploads, et définir la taille maximale du fichier accepté: au niveau du fichier properties ajouter les lignes suivantes:
+
+	```
+	spring.servlet.multipart.enabled=true
+	spring.servlet.multipart.file-size-threshold=2KB
+	spring.servlet.multipart.max-file-size=200MB
+	spring.servlet.multipart.max-request-size=215MB
+	file.upload-dir=/tmp
+	```	
+
+**Notez qu'il faut changer le dossier à une chemin qui vous convient**
+
+3. //TODO
+	
+	
+	
