@@ -340,7 +340,40 @@ Dans cette section nous allons load balancer le Microservice **ms1** en ajoutant
 
 	```
 
-3. Lancez deux instances de MS1 et une instance de MS2
+3. Ajouter au niveau du projet MS1 un package config, et dans ce package ajouter la class suivante:
+
+	```java
+	package ma.mycompany.ms1.config;
+	
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.context.annotation.Bean;
+	
+	import com.netflix.client.config.IClientConfig;
+	import com.netflix.loadbalancer.IPing;
+	import com.netflix.loadbalancer.IRule;
+	import com.netflix.loadbalancer.PingUrl;
+	import com.netflix.loadbalancer.WeightedResponseTimeRule;
+	
+	public class RibbonConfiguration {
+	
+		@Autowired
+	    IClientConfig ribbonClientConfig;
+	 
+	    @Bean
+	    public IPing ribbonPing(IClientConfig config) {
+	        return new PingUrl();
+	    }
+	 
+	    @Bean
+	    public IRule ribbonRule(IClientConfig config) {
+	        return new WeightedResponseTimeRule();
+	    }
+	    
+	}
+	```
+
+
+4. Lancez deux instances de MS1 et une instance de MS2
 
 > Indication: java -jar target/ms1-0.0.1-SNAPSHOT.jar -Dserver.port=3333
 > java -jar target/ms1-0.0.1-SNAPSHOT.jar -Dserver.port=4444

@@ -204,7 +204,7 @@ Dans cette partie nous allons voir un starter SPRING puissant `spring-boot-start
 	
 	http://localhost:9090/customers/1
 	
-	http://localhost:8080/customer/search/findByLastName?lastName=test
+	http://localhost:9090/customers/search/findByLastName?lastName=Mahmoud
 	```
 	
 ## Exemple d'une table de la BdD OMPIC PROJET X
