@@ -591,6 +591,42 @@ Dans cette section nous allons load balancer le Microservice **ms1** en ajoutant
 16. Envoyez la requête GET sur le lien [http://localhost:3333](http://localhost:3333) et vous allez obtenir la réponse souhaitée:
 	![](images/50.png)
 
+## SWAGGER
+
+```
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		
+		@EnableSwagger2
+		
+		@Bean
+		public Docket api() {
+			return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.any())
+				.paths(PathSelectors.any())
+				.build();
+		}
+		
+		private ApiInfo apiInfo() {
+			return new ApiInfo("MS2 REST API",
+				"L'API Public du Microservice 2 pour les Endpoints REST",
+				"V2",
+				"Terms of service",
+				new springfox.documentation.service.Contact("RABBAH", "www.ompic.ma", "mrabbah@gmail.com"),
+				"Licence Copyright", "API LICENCE URL", Collections.emptyList());
+	}
+		
+```
 	
 	
 	
